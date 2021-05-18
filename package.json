@@ -1,0 +1,48 @@
+{
+  "name": "fe",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@tiptap/extension-character-count": "^2.0.0-beta.11",
+    "@tiptap/extension-highlight": "^2.0.0-beta.12",
+    "@tiptap/extension-underline": "^2.0.0-beta.13",
+    "@tiptap/starter-kit": "^2.0.0-beta.57",
+    "@tiptap/vue-2": "^2.0.0-beta.27",
+    "axios": "^0.21.1",
+    "core-js": "^3.12.1",
+    "path": "^0.12.7",
+    "register-service-worker": "^1.7.2",
+    "reset-css": "^5.0.1",
+    "sass-loader": "^10.2.0",
+    "tiptap": "^1.32.2",
+    "tiptap-extensions": "^1.35.2",
+    "underscore": "^1.13.1",
+    "vue": "^2.6.12",
+    "vue-router": "^3.5.1",
+    "vuetify": "^2.5.0",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.13",
+    "@vue/cli-plugin-eslint": "~4.5.13",
+    "@vue/cli-plugin-pwa": "~4.5.13",
+    "@vue/cli-plugin-router": "~4.5.13",
+    "@vue/cli-plugin-vuex": "~4.5.13",
+    "@vue/cli-service": "~4.5.13",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.26.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "prettier": "^2.3.0",
+    "sass": "^1.32.13",
+    "vue-cli-plugin-vuetify": "~2.4.0",
+    "vue-template-compiler": "^2.6.12",
+    "vuetify-loader": "^1.7.2"
+  }
+}

@@ -84,7 +84,7 @@
         @click="editor.chain().focus().toggleHighlight({ color: '' }).run()"
         :class="{ 'is-active': editor.isActive('highlight') }"
       >
-        노랑
+        <span style="background-color: #ffff00"> 노랑 </span>
       </v-btn>
       <v-btn
         small
@@ -94,7 +94,7 @@
         "
         :class="{ 'is-active': editor.isActive('highlight') }"
       >
-        주황
+        <span style="background-color: #ffc078"> 주황 </span>
       </v-btn>
       <!-- <v-btn small outlined @click="editor.chain().focus().toggleBulletList().run()" :class="{ 'is-active': editor.isActive('bulletList') }">
         <v-icon>mdi-format-list-bulleted</v-icon>
@@ -125,7 +125,7 @@
         <v-icon>mdi-redo</v-icon>
       </v-btn>
     </div>
-    <editor-content :editor="editor" class="editor__css" />
+    <editor-content :editor="editor" class="editor__css"/>
     <!-- <div class="character-count">
       {{ editor.getCharacterCount() }}
     </div> -->
@@ -166,7 +166,7 @@ export default {
   watch: {
     value: function (value) {
       const isSame = this.editor.getHTML() === value;
-      // const isSame = this.editor.getJSON().toString() === value.toString()
+      // const isSame = this.editor.getJSON() === value
       if (isSame) {
         return;
       }
@@ -188,36 +188,43 @@ export default {
       content: this.value,
       onUpdate: () => {
         this.$emit("input", this.editor.getHTML());
-        // this.$emit('input', this.editor.getJSON())
       },
     });
   },
-
   beforeDestroy() {
     this.editor.destroy();
   },
 };
 </script>
 
-<style scoped>
+<style>
 .editor__button {
   text-align: center;
+}
+.editor__content {
+  padding: 5px;
 }
 .editor__css {
   margin: 0.75em 0;
   min-height: 75vh;
-  max-height: 90vh;
+  max-height: 83vh;
   overflow-y: auto;
+  padding: 5px;
+  border: 1px solid #aaaaaa88;
+  border-radius: 5px;
 }
 .editor__css::-webkit-scrollbar {
   width: 10px;
 }
 .editor__css::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 255, 234, 0.5);
+  background-color: #868e967a;
   border-radius: 10px;
 }
 .character-count {
   margin-top: 1rem;
   color: #868e96;
+}
+.ProseMirror:focus {
+  outline: none;
 }
 </style>

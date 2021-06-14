@@ -12,13 +12,10 @@ export default {
     }
   },
   methods: {
-    
   },
   mounted() {
-    
   },
   created() {
-    console.log("intro.vue")
   },
 };
 </script>

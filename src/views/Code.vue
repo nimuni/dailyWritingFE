@@ -1,7 +1,7 @@
 <template>
   <v-container fill-height>
     <v-row>
-      <v-col align="center" justify="center" class="pa-10 min-width-600" >
+      <v-col align="center" justify="center" class="min-width-600" >
         <div>
           <v-data-table
             :headers="headers"

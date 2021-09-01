@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="fill-height">
     <nimuni-appbar></nimuni-appbar>
     <v-main class="grey lighten-3 main-container">
       <v-container>
@@ -44,8 +44,10 @@ export default {
 
 <style>
 @import "./css/default.css";
+
 .v-application--wrap {
   background-color:#F2E291;
+  min-height: 100%;
 }
 .main-container {
   margin: 0 auto;
@@ -53,6 +55,7 @@ export default {
 }
 .main-container-card {
   height: 92.3vh;
+  overflow:auto;
 }
 ::-webkit-scrollbar {
   background: transparent;

@@ -20,12 +20,14 @@ export default new Vuex.Store({
       state.isLogin = payload.isLogin
       state.token = payload.token
       state.userId = payload.userId
+      state.expire = payload.expire
     },
     mutationLogout: (state, payload) => {
       state.nickname = ''
       state.isLogin = false
       state.token = ''
       state.userId = ''
+      state.expire = ''
     }
   },
   actions: {},

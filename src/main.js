@@ -6,6 +6,7 @@ import store from "./store";
 import axios from "axios";
 import vuetify from "./plugins/vuetify";
 
+// axios.defaults.baseURL = 'http://35.209.148.236:3000'
 Vue.prototype.$http = axios;
 Vue.config.productionTip = false;
 

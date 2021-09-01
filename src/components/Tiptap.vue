@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="editor" class="editor__button">
+    <div v-if="editable" class="editor__button">
       <v-btn
         small
         outlined
@@ -125,7 +125,7 @@
         <v-icon>mdi-redo</v-icon>
       </v-btn>
     </div>
-    <editor-content :editor="editor" class="editor__css"/>
+    <editor-content :editor="editor" class="editor__css" :class="{'editor-line': editable}"/>
     <!-- <div class="character-count">
       {{ editor.getCharacterCount() }}
     </div> -->
@@ -184,12 +184,19 @@ export default {
           limit: this.limit,
         }),
       ],
+      autofocus: true,
       editable: this.editable,
       content: this.value,
       onUpdate: () => {
         this.$emit("input", this.editor.getHTML());
       },
     });
+  },
+  methods: {
+    focusEditor: function(){
+      console.log("call focusEditor")
+      this.editor.focus()
+    }
   },
   beforeDestroy() {
     this.editor.destroy();
@@ -206,10 +213,11 @@ export default {
 }
 .editor__css {
   margin: 0.75em 0;
-  min-height: 75vh;
-  max-height: 83vh;
+  max-height: 74vh;
   overflow-y: auto;
   padding: 5px;
+}
+.editor-line {
   border: 1px solid #aaaaaa88;
   border-radius: 5px;
 }

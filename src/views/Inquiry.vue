@@ -1,134 +1,130 @@
 <template>
-  <v-container>
-    <v-layout>
-      <v-flex>
-        <v-row>
-          <v-col cols="12" align="center">
-            <v-form v-model="inquiryIdValid" ref="form">
-              <v-row>
-                <v-col cols="12">
-                  <v-card max-width="500" min-height="500">
-                    <div v-show="showInquiryId">
-                      <div class="inquiry-div">
-                        <v-card-title>아이디 찾기</v-card-title>
-                        <v-card-subtitle style="text-align: left"
-                          >가입하실 때 등록했던 이메일 기반으로 아이디 정보를
-                          찾습니다.</v-card-subtitle
-                        >
-                        <v-card-text>
-                          <v-text-field
-                            v-model="email"
-                            label="이메일"
-                            :rules="[rules.required, rules.email]"
-                            hide-details
-                            outlined
-                          ></v-text-field>
-                        </v-card-text>
-                      </div>
-                      <v-card-text>
-                        <v-btn block @click="inquiryId" :disabled="disableInquiryId">아이디 찾기</v-btn>
-                      </v-card-text>
-                    </div>
-                    <div class="inquiry-div" v-show="showInquiryPassword">
-                      <div class="inquiry-div">
-                        <v-card-title>비밀번호 초기화</v-card-title>
-                        <v-card-subtitle style="text-align: left"
-                          >가입하실 때 등록했던 이메일로 초기화된 비밀번호를
-                          보내드립니다.</v-card-subtitle
-                        >
-                        <v-card-text>
-                          <v-text-field
-                            style="margin-bottom:10px;"
-                            v-model="email"
-                            label="이메일"
-                            type="text"
-                            :rules="[rules.required, rules.email]"
-                            hide-details
-                            outlined
-                          ></v-text-field>
-                          <v-text-field
-                            v-model="userId"
-                            label="아이디"
-                            type="text"
-                            :rules="[rules.required]"
-                            hide-details
-                            outlined
-                          ></v-text-field>
-                        </v-card-text>
-                      </div>
-                      <v-card-text>
-                        <v-btn block @click="inquiryPassword" :disabled="disableInquiryPassword">비밀번호 초기화</v-btn>
-                      </v-card-text>
-                    </div>
-                    <div
-                      class="inquiry-div"
-                      v-show="!showInquiryId && !showInquiryPassword"
+  <v-container fill-height>
+    <v-row>
+      <v-col cols="12" align="center" justify="center">
+        <v-form v-model="inquiryIdValid" ref="form">
+          <v-row>
+            <v-col cols="12">
+              <v-card max-width="500" min-height="500">
+                <div v-show="showInquiryId">
+                  <div class="inquiry-div">
+                    <v-card-title>아이디 찾기</v-card-title>
+                    <v-card-subtitle style="text-align: left"
+                      >가입하실 때 등록했던 이메일 기반으로 아이디 정보를
+                      찾습니다.</v-card-subtitle
                     >
-                      잘못된 접근입니다.
-                    </div>
-                    <div>
-                      <v-card-text>
-                        <v-btn block @click="() => {this.$router.push({ name: 'Login' })}">로그인</v-btn>
-                      </v-card-text>
-                    </div>
-                    <div style="padding: 10px">
-                      <span>
-                        <a
-                          class="inquiry-string"
-                          @click="
-                            () => {
-                              this.inquiryType = 'userId';
-                            }
-                          "
-                          >아이디 찾기</a
-                        >
-                        <span> / </span>
-                        <a
-                          class="inquiry-string"
-                          @click="
-                            () => {
-                              this.inquiryType = 'password';
-                            }
-                          "
-                          >비밀번호 초기화</a
-                        >
-                        <span> / </span>
-                        <a
-                          class="inquiry-string"
-                          @click="
-                            () => {
-                              this.$router.push({ name: 'Register' });
-                            }
-                          "
-                          >회원가입</a
-                        >
-                      </span>
-                    </div>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-form>
-
-            <v-dialog v-model="showInquiryDialog" width="400px" persistent>
-              <v-card>
-                <v-card-title>
-                  {{ dialogTitle }}
-                </v-card-title>
-
-                <v-card-text>
-                  {{ dialogText }}
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="primary" @click="closeInquiryDialog">close</v-btn>
-                </v-card-actions>
+                    <v-card-text>
+                      <v-text-field
+                        v-model="email"
+                        label="이메일"
+                        :rules="[rules.required, rules.email]"
+                        hide-details
+                        outlined
+                      ></v-text-field>
+                    </v-card-text>
+                  </div>
+                  <v-card-text>
+                    <v-btn block @click="inquiryId" :disabled="disableInquiryId">아이디 찾기</v-btn>
+                  </v-card-text>
+                </div>
+                <div class="inquiry-div" v-show="showInquiryPassword">
+                  <div class="inquiry-div">
+                    <v-card-title>비밀번호 초기화</v-card-title>
+                    <v-card-subtitle style="text-align: left"
+                      >가입하실 때 등록했던 이메일로 초기화된 비밀번호를
+                      보내드립니다.</v-card-subtitle
+                    >
+                    <v-card-text>
+                      <v-text-field
+                        style="margin-bottom:10px;"
+                        v-model="email"
+                        label="이메일"
+                        type="text"
+                        :rules="[rules.required, rules.email]"
+                        hide-details
+                        outlined
+                      ></v-text-field>
+                      <v-text-field
+                        v-model="userId"
+                        label="아이디"
+                        type="text"
+                        :rules="[rules.required]"
+                        hide-details
+                        outlined
+                      ></v-text-field>
+                    </v-card-text>
+                  </div>
+                  <v-card-text>
+                    <v-btn block @click="inquiryPassword" :disabled="disableInquiryPassword">비밀번호 초기화</v-btn>
+                  </v-card-text>
+                </div>
+                <div
+                  class="inquiry-div"
+                  v-show="!showInquiryId && !showInquiryPassword"
+                >
+                  잘못된 접근입니다.
+                </div>
+                <div>
+                  <v-card-text>
+                    <v-btn block @click="() => {this.$router.push({ name: 'Login' })}">로그인</v-btn>
+                  </v-card-text>
+                </div>
+                <div style="padding: 10px">
+                  <span>
+                    <a
+                      class="inquiry-string"
+                      @click="
+                        () => {
+                          this.inquiryType = 'userId';
+                        }
+                      "
+                      >아이디 찾기</a
+                    >
+                    <span> / </span>
+                    <a
+                      class="inquiry-string"
+                      @click="
+                        () => {
+                          this.inquiryType = 'password';
+                        }
+                      "
+                      >비밀번호 초기화</a
+                    >
+                    <span> / </span>
+                    <a
+                      class="inquiry-string"
+                      @click="
+                        () => {
+                          this.$router.push({ name: 'Register' });
+                        }
+                      "
+                      >회원가입</a
+                    >
+                  </span>
+                </div>
               </v-card>
-            </v-dialog>
-          </v-col>
-        </v-row>
-      </v-flex>
-    </v-layout>
+            </v-col>
+          </v-row>
+        </v-form>
+
+        <v-dialog v-model="showInquiryDialog" width="400px" persistent>
+          <v-card>
+            <v-card-title>
+              {{ dialogTitle }}
+            </v-card-title>
+
+            <v-card-text>
+              {{ dialogText }}
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="primary" @click="closeInquiryDialog">close</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

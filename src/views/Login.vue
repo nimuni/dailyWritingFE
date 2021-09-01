@@ -181,6 +181,7 @@ export default {
             userId: result.data.userId,
             isLogin: true,
             token: result.data.token,
+            expire: result.data.expire,
           });
           this.$router.push({ name: "Intro" });
         } else {

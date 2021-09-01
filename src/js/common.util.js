@@ -33,3 +33,8 @@ export function exp_remove_html_tag(str) {
   // let text = str.replace(/<br\/>/ig, "\n")
   return str.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");
 }
+
+export function exp_timezoneStrToYYYYMMDD(time){
+  let YYYYMMDD = time.substring(0, 10);
+  return YYYYMMDD;
+}

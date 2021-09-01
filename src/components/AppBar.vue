@@ -16,11 +16,11 @@
         </v-btn>
       </v-col>
     </v-row>
-    <v-btn color="#BF7A24" dark text @click="dailyWritingPage">
+    <v-btn color="#BF7A24" dark text @click="dailyWritingCreatePage">
       <v-icon>mdi-pencil</v-icon>
       <span class="appbar-menu-span">시작하기</span>
     </v-btn>
-    <v-btn color="#BF7A24" dark text @click="subjectPage">
+    <v-btn color="#BF7A24" dark text @click="subjectListPage">
       <v-icon>mdi-playlist-edit</v-icon>
       <span class="appbar-menu-span">글주제</span>
     </v-btn>
@@ -72,11 +72,11 @@ export default {
     introPage: function(){
       this.$router.push({ name: "Intro" });
     },
-    dailyWritingPage: function(){
-      this.$router.push({ name: "DailyWriting" });
+    dailyWritingCreatePage: function(){
+      this.$router.push({ name: "DailyWritingCreate" });
     },
-    subjectPage: function(){
-      this.$router.push({ name: "Subject" });
+    subjectListPage: function(){
+      this.$router.push({ name: "SubjectList" });
     },
     codePage: function(){
       this.$router.push({ name: "Code" });

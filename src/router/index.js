@@ -12,12 +12,11 @@ Vue.use(VueRouter);
 const requireAuth = (to, from, next) => {
   let expireTime = dayjs(store.state.expire).tz("Asia/Seoul")
   let nowTime = dayjs().tz("Asia/Seoul")
-  console.log()
-  if (expireTime > nowTime) {
+  if (expireTime >= nowTime) {
     return next();
   } else {
-    console.log("router requireAuth else")
-    return from();
+    router.push({ name: from.name })
+    return "router requireAuth else"
   }
 };
 
